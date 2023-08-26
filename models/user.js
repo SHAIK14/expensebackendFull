@@ -1,6 +1,13 @@
-const { DataTypes } = require("sequelize");
-const sequelize = reequire("../config/config.js");
-const User = sequelize.define("User", {
+const { DataTypes } = require("sequelize"); // already added, but just simply adding
+const sequelize = require("../config/config.js");
+
+const User = sequelize.define("Users", {
+  id: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+    allowNull: false,
+  },
   name: {
     type: DataTypes.STRING,
     allowNull: false,
