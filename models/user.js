@@ -3,7 +3,7 @@ const sequelize = require("../config/config.js");
 
 const User = sequelize.define("Users", {
   id: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.INTEGER, // earlied i used to Sequelize  = require("sequelize") and used to add it to the type : Sequelize.Integer but this time tried new
     primaryKey: true,
     autoIncrement: true,
     allowNull: false,
