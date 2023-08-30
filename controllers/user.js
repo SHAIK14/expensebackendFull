@@ -21,9 +21,11 @@ const signup = async (req, res) => {
     res.status(500).json({ message: "Error signing up" });
   }
 };
+
 const generateAccessToken = (id, name, ispremiumuser) => {
   return jwt.sign({ userId: id, name: name, ispremiumuser }, "secretkey");
 };
+
 const login = async (req, res) => {
   try {
     const { email, password } = req.body;
