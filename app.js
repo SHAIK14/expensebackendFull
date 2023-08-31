@@ -4,7 +4,7 @@ const cors = require("cors");
 const userRoutes = require("./routes/User");
 const expenseRouter = require("./routes/expense");
 const sequelize = require("./config/config");
-const User = require("./models/User");
+const User = require("./models/user");
 const Expense = require("./models/expenses");
 const app = express();
 
@@ -14,7 +14,8 @@ app.use(cors());
 app.use("/api/users", userRoutes);
 app.use("/api/expense", expenseRouter);
 User.hasMany(Expense);
-Expense.belongsTo(User);
+// Expense.belongsTo(User);
+Expense.belongsTo(User, { foreignKey: "UserId" });
 
 sequelize
   .sync()
