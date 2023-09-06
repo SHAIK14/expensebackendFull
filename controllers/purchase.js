@@ -43,7 +43,7 @@ const updateTransactionStatus = async (req, res) => {
     req.user.ispremium = true;
     await req.user.save();
     order.status = "paid";
-    order["payment_id"] = payment_id;
+    order.paymentid = payment_id;
     //  Object.assign(order, {status:'paid' , payment_id:razorpay_payment_id}); // Merge the updatedData into the order object
     await order.save(); // Save the updated order to the database
     res.json({ message: "Payment successful", isPremium: req.user.ispremium });
