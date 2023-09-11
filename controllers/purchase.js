@@ -42,16 +42,17 @@ const updateTransactionStatus = async (req, res) => {
       return;
     }
     req.user.isPremium = true;
+    console.log("user request", req.user); //setting
     await req.user.save();
     order.status = "paid";
     order.paymentid = payment_id;
     //  Object.assign(order, {status:'paid' , payment_id:razorpay_payment_id}); // Merge the updatedData into the order object
     await order.save();
-    console.log("Payload before token generation:", {
-      userId,
-      name: req.user.name,
-      isPremium,
-    });
+    // console.log("Payload before token generation:", {
+    //   userId,
+    //   name: req.user.name,
+    //   isPremium,
+    // });
     // Save the updated order to the database
     res.status(202).json({
       message: "Payment successful",

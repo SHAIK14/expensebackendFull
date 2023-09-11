@@ -49,7 +49,7 @@ const login = async (req, res) => {
         return res.status(200).json({
           success: true,
           message: "User logged in successfully",
-          token: generateAccessToken(user.id, user.name, user.ispremiumuser),
+          token: generateAccessToken(user.id, user.name, user.isPremium),
         });
       } else {
         return res
