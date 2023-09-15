@@ -33,7 +33,7 @@ const forgotpassword = async (req, res, next) => {
       sendSmtpEmail.sender = { email: "smd.20sa@gmail.com" }; //process.env.SG_MAIL
       sendSmtpEmail.subject = "Reset Password";
       sendSmtpEmail.textContent = "Forget Password";
-      sendSmtpEmail.htmlContent = "contenthtml"; // `<a href="http://localhost:4000/password/resetpassword/${id}">Reset password</a>`
+      sendSmtpEmail.htmlContent = `<a href="http://localhost:4000/password/resetpassword/${id}">Reset password</a>`; //
       sendSmtpEmail.to = [{ email }];
 
       apiInstance
