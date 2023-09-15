@@ -20,8 +20,8 @@ const forgotpassword = async (req, res, next) => {
       const id = uuid.v4();
       await ForgetPassword.create({
         id,
-        isactive: true,
-        userId: userId,
+        active: true,
+        UserId: userId,
       }).catch((err) => {
         console.log(err);
         throw new Error(err);
