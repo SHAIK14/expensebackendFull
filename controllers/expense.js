@@ -105,7 +105,7 @@ const downloadExpense = async (req, res, next) => {
       userId: req.user.id,
     });
 
-    res.status(200).json({ data: data, success: true });
+    res.status(200).json({ fileUrl, success: true }); //data: data
   } catch (error) {
     console.log("error:", error);
     res.status(500).json({ success: false });
