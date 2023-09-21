@@ -94,23 +94,23 @@ const resetPassword = async (req, res, next) => {
 const updatepassword = async (req, res, next) => {
   try {
     const { newpassword } = req.query;
-    console.log("newpassword in updatepassword fn", newpassword);
+    // console.log("newpassword in updatepassword fn", newpassword);
 
     const resetpasswordid = req.params.id;
-    console.log("resetpassworddid in updatepassword fn", resetpasswordid);
+    // console.log("resetpassworddid in updatepassword fn", resetpasswordid);
 
     const resetpasswordrequest = await ForgetPassword.findOne({
       where: { id: resetpasswordid },
     });
-    console.log(
-      "resetpasswordrequest in updatepassword fn,",
+    // console.log(
+    //   "resetpasswordrequest in updatepassword fn,",
 
-      resetpasswordrequest
-    );
+    //   resetpasswordrequest
+    // );
     const user = await User.findOne({
       where: { id: resetpasswordrequest.UserId },
     });
-    console.log("user in updatepassword fn,", user);
+    // console.log("user in updatepassword fn,", user);
 
     if (user) {
       const saltRounds = 10;
